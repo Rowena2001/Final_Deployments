@@ -19,7 +19,9 @@ from transformers import pipeline
         "min_replicas": 1,
         "initial_replicas": 2,
         "max_replicas": 10,
-        "target_num_ongoing_requests_per_replica": 10,
+        "target_num_ongoing_requests_per_replica": 8,
+        "upscale_delay_s": 5,
+        "smoothing_factor": 1.5
     }
 )
 class Translator:
