@@ -14,7 +14,14 @@ from transformers import pipeline
 # Creates a Ray Serve deployment for a translator application.
 # It specifies that the deployment should use 0.2 CPU cores.
 # Refer to https://docs.ray.io/en/latest/serve/scaling-and-resource-allocation.html# for more information.
-@serve.deployment()
+@serve.deployment(
+    autoscaling_config={
+        "min_replicas": 1,
+        "initial_replicas": 2,
+        "max_replicas": 10,
+        "target_num_ongoing_requests_per_replica": 10,
+    }
+)
 class Translator:
     def __init__(self):
         # Load model
