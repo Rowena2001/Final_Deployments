@@ -7,16 +7,15 @@ from ray import serve
 from ray.serve.deployment_graph import RayServeDAGHandle
 
 # Creates a Ray Serve deployment for a simple "hello world" function.
-# It specifies that the deployment should use 0.1 CPU cores.
 # Refer to https://docs.ray.io/en/latest/serve/scaling-and-resource-allocation.html# for more information.
-@serve.deployment(ray_actor_options={"num_cpus": 0.1})
+@serve.deployment()
 def f(*args):
     return "hello world! \n"
 
 # Creates a Ray Serve deployment for a driver that calls the "hello world" function.
 # It specifies that the deployment should use 0.1 CPU cores.
 # Refer to https://docs.ray.io/en/latest/serve/scaling-and-resource-allocation.html# for more information.
-@serve.deployment(ray_actor_options={"num_cpus": 0.1})
+@serve.deployment()
 class BasicDriver:
     def __init__(self, dag: RayServeDAGHandle):
         self.dag = dag
