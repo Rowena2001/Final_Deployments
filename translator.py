@@ -1,4 +1,4 @@
-# File name: autoscale1.py
+# File name: translator.py
 # This file deploys a translator application and a driver that calls it.
 # The translator application uses a pre-trained model from the transformers library.
 
@@ -10,16 +10,7 @@ from transformers import pipeline
 
 # Creates a Ray Serve deployment for a translator application.
 # Refer to https://docs.ray.io/en/latest/serve/scaling-and-resource-allocation.html# for more information.
-@serve.deployment(
-    autoscaling_config={
-        "min_replicas": 1,
-        "initial_replicas": 2,
-        "max_replicas": 10,
-        "target_num_ongoing_requests_per_replica": 8,
-        "upscale_delay_s": 5,
-        "smoothing_factor": 1.5
-    }
-)
+@serve.deployment()
 class Translator:
     def __init__(self):
         # Load model
