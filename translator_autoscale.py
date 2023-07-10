@@ -39,5 +39,5 @@ class Translator:
         translation = self.translate(english_text)
         return translation
 
-# Binds the translator application and the driver to the same deployment.
+# Preparing the deployment for serving.
 translator_app = Translator.bind()
