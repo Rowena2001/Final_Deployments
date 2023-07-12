@@ -13,11 +13,8 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-#     strategy:
-#       fail-fast: false
-#       matrix:
-#         python-version: ["3.7", "3.8", "3.9", "3.10"]
 
     steps:
-    - name: Automatic Releases
-      uses: marvinpinto/action-automatic-releases@v1.2.1
+    - name: Auto Release
+      uses: CupOfTea696/gh-action-auto-release@v1.0.2
+
