@@ -1,6 +1,6 @@
 # File name: serve_quickstart_composed.py
 # This file deploys a summarizer app that uses a translator deployment and a summarizer deployment.
-# Both deployments use model T5-small from the transformers library.
+# Both deployments use a popeline of model T5-small from the transformers library.
 
 from starlette.requests import Request
 
