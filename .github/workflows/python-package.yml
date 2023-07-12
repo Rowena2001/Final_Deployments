@@ -17,3 +17,5 @@ jobs:
     steps:
     - name: Auto Release
       uses: marvinpinto/action-automatic-releases@6273874b61ebc8c71f1a61b2d98e234cf389b303
+      with:
+        token: ${{ github.token }}
