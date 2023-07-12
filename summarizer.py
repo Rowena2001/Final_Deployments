@@ -1,4 +1,6 @@
 # File name: serve_quickstart_composed.py
+# This file deploys a summarizer app that uses a translator app to translate.
+
 from starlette.requests import Request
 
 import ray
