@@ -6,7 +6,7 @@ on:
       - "master"
 
 jobs:
-  pre-release:
+  auto-release:
     name: "Auto Release"
     permissions: write-all
     runs-on: "ubuntu-latest"
