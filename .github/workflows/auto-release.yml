@@ -4,9 +4,7 @@ on:
   push:
     branches:
       - "master"
-    tags:
-      - "v*"
-
+      
 jobs:
   auto-release:
     name: "Auto Release"
@@ -14,16 +12,6 @@ jobs:
     runs-on: "ubuntu-latest"
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-
-    - name: Create Tag
-      uses: negz/create-tag@v1
-      with:
-        version: ${{ github.event.inputs.version }}
-        message: ${{ github.event.inputs.message }}
-        token: ${{ secrets.GITHUB_TOKEN }}
-          
     - name: Automatic Releases
       uses: marvinpinto/action-automatic-releases@v1.2.1
       with:
