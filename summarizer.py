@@ -10,7 +10,7 @@ from ray.serve.handle import RayServeHandle
 
 from transformers import pipeline
 
-# Creates a Ray Serve deployment for the translator
+# Creates a Ray Serve deployment for the translator class
 @serve.deployment
 class Translator:
     def __init__(self):
@@ -26,7 +26,7 @@ class Translator:
 
         return translation
 
-# Creates a Ray Serve deployment for the summarizer
+# Creates a Ray Serve deployment for the summarizer class
 @serve.deployment
 class Summarizer:
     def __init__(self, translator: RayServeHandle):
