@@ -1,6 +1,6 @@
 # File name: serve_quickstart_composed.py
 # This file deploys a summarizer app that uses a translator deployment and a summarizer deployment.
-# Both deployments use a popeline of model T5-small from the transformers library. :>
+# Both deployments use a popeline of model T5-small from the transformers library. :)
 
 from starlette.requests import Request
 
@@ -10,7 +10,7 @@ from ray.serve.handle import RayServeHandle
 
 from transformers import pipeline
 
-
+# Creates a Ray Serve deployment for the translator
 @serve.deployment
 class Translator:
     def __init__(self):
@@ -26,7 +26,7 @@ class Translator:
 
         return translation
 
-
+# Creates a Ray Serve deployment for the summarizer
 @serve.deployment
 class Summarizer:
     def __init__(self, translator: RayServeHandle):
