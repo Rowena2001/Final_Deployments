@@ -12,7 +12,7 @@ jobs:
     runs-on: "ubuntu-latest"
 
     steps:
-    - name: Automatic Releases
+    - name: Prod Releases
       uses: marvinpinto/action-automatic-releases@v1.2.1
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
