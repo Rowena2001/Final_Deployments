@@ -3,10 +3,7 @@ name: "prod-release"
 on:
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '12 17 * * *'
-  push:
-    branches:
-      - 'master' 
+    - cron:  '18 5,17 * * *'
 
 jobs:
   prod-release:
