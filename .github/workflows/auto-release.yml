@@ -18,3 +18,25 @@ jobs:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
         automatic_release_tag: "latest"
         title: "Development Build"
+        
+---
+name: "prod-release"
+
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '37 9 * * *'
+
+jobs:
+  auto-release:
+    name: "Prod Release"
+    permissions: write-all
+    runs-on: "ubuntu-latest"
+
+    steps:
+    - name: Automatic Releases
+      uses: marvinpinto/action-automatic-releases@v1.2.1
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: "prod"
+        title: "Daily Development Build"
