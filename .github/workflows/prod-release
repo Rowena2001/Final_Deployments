@@ -9,7 +9,7 @@ push:
       - "master"
 
 jobs:
-  auto-release:
+  prod-release:
     name: "Prod Release"
     permissions: write-all
     runs-on: "ubuntu-latest"
