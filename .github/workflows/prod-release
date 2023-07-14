@@ -6,7 +6,7 @@ on:
       - "master"
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  "26 17 * * *"
+    - cron:  "27 17 * * *"
 
 jobs:
   prod-release:
@@ -15,7 +15,7 @@ jobs:
     runs-on: "ubuntu-latest"
 
     steps:
-    - name: Prod Releases
+    - name: Automatic Releases
       uses: marvinpinto/action-automatic-releases@v1.2.1
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
