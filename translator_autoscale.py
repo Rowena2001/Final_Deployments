@@ -1,4 +1,5 @@
 # File name: translator_autoscale.py
+# This file deploys a translator application with Ray Serve autoscaling.
 # The translator application uses a pre-trained model from the transformers library.
 
 from starlette.requests import Request
@@ -7,7 +8,7 @@ from ray import serve
 
 from transformers import pipeline
 
-# Creates a Ray Serve deployment for a translator application.
+# Creates a Ray Serve deployment for a translator application with Ray Serve autoscaling configuration.
 # Refer to https://docs.ray.io/en/latest/serve/scaling-and-resource-allocation.html# for more information.
 @serve.deployment(
     autoscaling_config={

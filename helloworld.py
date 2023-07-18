@@ -13,7 +13,6 @@ def f(*args):
     return "hello world! \n"
 
 # Creates a Ray Serve deployment for a driver that calls the "hello world" function.
-# It specifies that the deployment should use 0.1 CPU cores.
 # Refer to https://docs.ray.io/en/latest/serve/scaling-and-resource-allocation.html# for more information.
 @serve.deployment()
 class BasicDriver:

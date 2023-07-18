@@ -1,5 +1,5 @@
 # File name: translator.py
-# This file deploys a translator application and a driver that calls it.
+# This file deploys a translator application.
 # The translator application uses a pre-trained model from the transformers library.
 
 from starlette.requests import Request

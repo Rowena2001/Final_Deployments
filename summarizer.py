@@ -1,10 +1,10 @@
-# File name: serve_quickstart_composed.py
-# This file deploys a summarizer app that uses a translator deployment and a summarizer deployment.
-# Both deployments use a popeline of model T5-small from the transformers library. :)
+# File name: summarizer.py
+# This file deploys a summarizer app that summarizes and translates text.
+# The Translator and Summarizer classes are defined as Ray Serve deployments.
+# Both deployments use a pipeline of model T5-small from the transformers library.
 
 from starlette.requests import Request
 
-import ray
 from ray import serve
 from ray.serve.handle import RayServeHandle
 
@@ -52,5 +52,5 @@ class Summarizer:
 
         return translation
 
-
+# Binds the translator and summarizer deployments to the same deployment.
 summarizer = Summarizer.bind(Translator.bind())
