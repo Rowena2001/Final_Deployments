@@ -1,9 +1,7 @@
 # File name: translator_gpu.py
 from starlette.requests import Request
 
-import ray
 from ray import serve
-from ray.serve.deployment_graph import RayServeDAGHandle
 
 from transformers import pipeline
 
@@ -29,16 +27,5 @@ class Translator:
         translation = self.translate(english_text)
         return translation
 
-@serve.deployment()
-class BasicDriver:
-    def __init__(self, dag: RayServeDAGHandle):
-        self.dag = dag
-
-    async def __call__(self, http_request: Request):
-        object_ref = await self.dag.remote(http_request)
-        result = await object_ref
-        return result
-
+# Deploy the Translator class
 translator_app = Translator.bind()
-# translation = translator_app.translate.bind()
-DagNode = BasicDriver.bind(translator_app)
