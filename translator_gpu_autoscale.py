@@ -23,6 +23,7 @@ class Translator:
         # Load model
         # Device map allows for automatic placement of the model on the available GPUs
         self.model = pipeline("translation_en_to_fr", model="t5-small", device_map="auto")
+        # self.model = AutoModelForSeq2SeqLM.from_pretrained("t5-small", low_cpu_mem_usage=True)
 
     def translate(self, text: str) -> str:
         # Run inference
