@@ -15,22 +15,12 @@ class Translator:
         # Load model
         self.model = pipeline("translation_en_to_fr", model="t5-small", device_map="auto")
 
-        # Print GPU information
-        print("Translator constructor")
-        print("ray.get_gpu_ids(): {}".format(ray.get_gpu_ids()))
-        print("CUDA_VISIBLE_DEVICES: {}".format(os.environ["CUDA_VISIBLE_DEVICES"]))
-
     def translate(self, text: str) -> str:
         # Run inference
         model_output = self.model(text)
 
         # Post-process output to return only the translation text
         translation = model_output[0]["translation_text"]
-
-        # Print GPU information
-        print("Translate")
-        print("ray.get_gpu_ids(): {}".format(ray.get_gpu_ids()))
-        print("CUDA_VISIBLE_DEVICES: {}".format(os.environ["CUDA_VISIBLE_DEVICES"]))
 
         return translation
 
