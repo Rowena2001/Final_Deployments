@@ -12,12 +12,10 @@ from transformers import pipeline
 # Refer to https://docs.ray.io/en/latest/serve/scaling-and-resource-allocation.html# for more information.
 @serve.deployment(
     autoscaling_config={
-        "min_replicas": 1,
+        "min_replicas": 2,
         "initial_replicas": 2,
         "max_replicas": 10,
-        "target_num_ongoing_requests_per_replica": 8,
         "upscale_delay_s": 5,
-        "smoothing_factor": 1.5
     }
 )
 class Translator:
