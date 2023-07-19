@@ -1,4 +1,5 @@
 # File name: translator_autoscale.py
+# This file deploys a translator application on gpu machines with autoscaling.
 # The translator application uses a pre-trained model from the transformers library.
 
 from starlette.requests import Request
@@ -22,7 +23,8 @@ from transformers import pipeline
 class Translator:
     def __init__(self):
         # Load model
-        self.model = pipeline("translation_en_to_fr", model="t5-small")
+        # Device map allows for automatic placement of the model on the available GPUs
+        self.model = pipeline("translation_en_to_fr", model="t5-small", device_map="auto")
 
     def translate(self, text: str) -> str:
         # Run inference
@@ -39,5 +41,5 @@ class Translator:
         translation = self.translate(english_text)
         return translation
 
-# Preparing the deployment for serving.
+# Deploy the Translator class
 translator_app = Translator.bind()
