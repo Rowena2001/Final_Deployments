@@ -14,8 +14,8 @@ from transformers import pipeline
     autoscaling_config={
         "min_replicas": 2,
         "initial_replicas": 2,
-        "max_replicas": 10,
-        "upscale_delay_s": 5,
+        "max_replicas": 8,
+        "upscale_delay_s": 2,
     }
 )
 class Translator:
