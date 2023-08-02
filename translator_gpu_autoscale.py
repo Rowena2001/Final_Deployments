@@ -16,7 +16,7 @@ from transformers import pipeline
         "initial_replicas": 2,
         "max_replicas": 8,
         "upscale_delay_s": 2,
-        "downscale_delay_s": 20,
+        "downscale_delay_s": 60,
     }
 )
 class Translator:
