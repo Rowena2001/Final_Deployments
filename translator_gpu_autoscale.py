@@ -18,9 +18,7 @@ from transformers import pipeline
         "upscale_delay_s": 2,
         "downscale_delay_s": 60,
     },
-    health_check_period_s = 60,
-    health_check_timeout_s = 120,
-
+    health_check_timeout_s = 300,
 )
 class Translator:
     def __init__(self):
