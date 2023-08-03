@@ -17,7 +17,10 @@ from transformers import pipeline
         "max_replicas": 8,
         "upscale_delay_s": 2,
         "downscale_delay_s": 60,
-    }
+    },
+    health_check_period_s = 60,
+    health_check_timeout_s = 120,
+
 )
 class Translator:
     def __init__(self):
